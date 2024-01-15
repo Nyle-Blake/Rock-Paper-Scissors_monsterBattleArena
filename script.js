@@ -1,3 +1,9 @@
+// 1. Make computer generate random choice
+// 2. Prompt user input
+// 3. set result variable with if else statements
+// 4. return result
+// 5. (Make the game loop 5 times)
+
 const getChoices = () => {
   const computerChoice = ['Rock', 'Paper', 'Scissors'][Math.floor(Math.random() * 3)];
   const userChoice = prompt("choose one: Rock, Paper, or Scissors")
