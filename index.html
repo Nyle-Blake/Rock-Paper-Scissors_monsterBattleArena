@@ -6,15 +6,24 @@
     <title>Rock Paper Scissors</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
   </head>
+
   <body>
     <h1>Rock, Paper, Scissors</h1>
-    <div class="choices">
-      <input type="button" value="Rock"></input>
-      <input type="button" value="Paper"></input>
-      <input type="button" value="Scissors"></input>
+    <div class="border main">
+      <div class="type-icons">
+        <img id="grass-icon" src="icons/grass.png" alt="">
+        <img id="fire-icon" src="icons/fire.png" alt="">
+        <img id="water-icon" src="icons/water.png" alt="">
+      </div>
+      <div class="inputs">
+        <input id="grass" class="btn btn-primary" type="button" value="Rock"></input>
+        <input id="fire" class="btn btn-primary" type="button" value="Paper"></input>
+        <input id="water" class="btn btn-primary" type="button" value="Scissors"></input>
+      </div>
     </div>
     <div>
       <p class="result"></p>

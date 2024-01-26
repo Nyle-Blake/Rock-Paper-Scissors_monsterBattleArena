@@ -14,11 +14,11 @@ const disableButtons = () => {
   buttons.forEach(button => {
     button.disabled = true
   })
-};
+}; // prevents more input after the game has finished
 
 const getComputerChoice = () => {
   return ['Rock', 'Paper', 'Scissors'][Math.floor(Math.random() * 3)];
-};
+}; // gets random choice from computer
 
 const playGame = (userChoice) => {
   let computerChoice;
@@ -32,17 +32,17 @@ const playGame = (userChoice) => {
 
   } else if (userChoice == "Rock" && computerChoice == "Scissors" || userChoice == "Paper" && computerChoice == "Rock" || userChoice == "Scissors" && computerChoice == "Paper") {
     userScore++
-    endResult = "You won this round!" + "<br><br>Userscore: " + userScore + "<br>Computerscore: " + computerScore;
+    endResult = "You won this round! " + "<br>" + userChoice + " beats " + computerChoice + "<br><br>Userscore: " + userScore + "<br>Computerscore: " + computerScore;
       if (userScore == 5) {
-        endResult = "You won the game!";
+        endResult = "You won the battle!" + "<br><br>Userscore: " + userScore + "<br>Computerscore: " + computerScore;
         disableButtons()
       }
 
   } else {
     computerScore++
-    endResult = "You lost this round!" + "<br><br>Userscore: " + userScore + "<br>Computerscore: " + computerScore;
+    endResult = "You lost this round! " + "<br>" + computerChoice + " beats " + userChoice + "<br><br>Userscore: " + userScore + "<br>Computerscore: " + computerScore;
       if (computerScore == 5) {
-        endResult = "You lost the game!";
+        endResult = "You lost the battle!" + "<br><br>Userscore: " + userScore + "<br>Computerscore: " + computerScore;
         disableButtons()
       }
   }
@@ -57,7 +57,7 @@ buttons.forEach(button => {
   button.addEventListener('click', () => {
     playGame(button.value);
   })
-});
+}); // event listener for the input buttons, for player input
 
 // rock => scissors
 // scissors => paper
