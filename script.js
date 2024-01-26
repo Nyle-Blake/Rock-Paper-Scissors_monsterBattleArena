@@ -40,7 +40,7 @@ const playGame = (userChoice) => {
 
   } else {
     computerScore++
-    endResult = "You lost this round!" + "Userscore: " + userScore + " Computerscore: " + computerScore;
+    endResult = "You lost this round!" + "<br><br>Userscore: " + userScore + "<br>Computerscore: " + computerScore;
       if (computerScore == 5) {
         endResult = "You lost the game!";
         disableButtons()
