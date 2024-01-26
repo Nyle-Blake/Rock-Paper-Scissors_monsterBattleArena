@@ -4,51 +4,61 @@
 // 4. return result
 // 5. (Make the game loop 5 times)
 
-const rockPaperScissors = () => {
-  let computerChoice;
-  let userChoice;
-  let result = "";
-  let count = 0;
-  let userScore = 0;
-  let computerScore = 0;
-  let finalResult = "";
+const buttons = document.querySelectorAll('input')
+const result = document.querySelector('.result');
 
+let userScore = 0;
+let computerScore = 0;
+
+const disableButtons = () => {
+  buttons.forEach(button => {
+    button.disabled = true
+  })
+};
+
+const getComputerChoice = () => {
+  return ['Rock', 'Paper', 'Scissors'][Math.floor(Math.random() * 3)];
+};
+
+const playGame = (userChoice) => {
+  let computerChoice;
+  let endResult = "";
   // while count <= 5 play game  
 
-  while(count <= 5) {
+  computerChoice = getComputerChoice();
 
-    computerChoice = ['Rock', 'Paper', 'Scissors'][Math.floor(Math.random() * 3)];
-    userChoice = prompt("choose one: Rock, Paper, or Scissors")
+  if (computerChoice == "Rock" && userChoice == "Rock" || computerChoice == "Paper" && userChoice == "Paper" || computerChoice == "Scissors" && userChoice == "Scissors") {
+    endResult = "This round is a draw" + "<br><br>Userscore: " + userScore + "<br>Computerscore: " + computerScore;
 
-    if (userChoice != "Rock" && userChoice != "Paper" && userChoice != "Scissors") {
-      result = "Incorrect input, Please enter Rock, Paper, or Scissors"
-    } else if (computerChoice == "Rock" && userChoice == "Rock" || computerChoice == "Paper" && userChoice == "Paper" || computerChoice == "Scissors" && userChoice == "Scissors") {
-      result = "This round is a draw"
-    } else if (userChoice == "Rock" && computerChoice == "Scissors" || userChoice == "Paper" && computerChoice == "Rock" || userChoice == "Scissors" && computerChoice == "Paper") {
-      result = "You won this round!"
-      userScore++
-    } else {
-      result = "You lost this round!"
-      computerScore++
-    }
+  } else if (userChoice == "Rock" && computerChoice == "Scissors" || userChoice == "Paper" && computerChoice == "Rock" || userChoice == "Scissors" && computerChoice == "Paper") {
+    userScore++
+    endResult = "You won this round!" + "<br><br>Userscore: " + userScore + "<br>Computerscore: " + computerScore;
+      if (userScore == 5) {
+        endResult = "You won the game!";
+        disableButtons()
+      }
 
-    count++
-    console.log(`You chose ${userChoice} and the computer chose ${computerChoice} so ${result}`)
-  }
-    
-  if (userScore == computerScore) {
-    finalResult = "The game was a draw!"
-  } else if (userScore > computerScore) {
-    finalResult = "You won the game!"
   } else {
-    finalResult = "You lost the game!"
+    computerScore++
+    endResult = "You lost this round!" + "Userscore: " + userScore + " Computerscore: " + computerScore;
+      if (computerScore == 5) {
+        endResult = "You lost the game!";
+        disableButtons()
+      }
   }
 
-  return `Your score was ${userScore} and the computer's score was ${computerScore}, so ${finalResult}`
+  result.innerHTML = endResult;
+  console.log(userChoice)
+  console.log(computerChoice)
+  return;
+};
 
-}
+buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    playGame(button.value);
+  })
+});
 
-rockPaperScissors()
 // rock => scissors
 // scissors => paper
 // paper => rock
