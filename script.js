@@ -2,7 +2,7 @@
 // 2. Prompt user input
 // 3. set result variable with if else statements
 // 4. return result
-// 5. (Make the game loop 5 times)
+// 5. (Make the game loop until a score = 5)
 
 const buttons = document.querySelectorAll('input')
 const result = document.querySelector('.result');
