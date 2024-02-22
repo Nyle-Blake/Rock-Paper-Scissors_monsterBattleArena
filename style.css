@@ -22,12 +22,17 @@ body {
   box-shadow: inset -6px -2px 42px 5px rgba(204,204,204,0.4);
   background-color: #fff;
   border-radius: 20px;
-  margin: 50px 0;
+  margin-top: 100px;
+  margin-bottom: 50px;
 }
 
 .inputs {
   display: flex;
   gap: 100px;
+}
+
+.inputs > input {
+  font-size: 32px;
 }
 
 .type-icons {
@@ -45,12 +50,27 @@ body {
   background-color: #02913a;
 }
 
+#grass:active {
+  background-color: #fff;
+  color: #02913a;
+}
+
 #fire {
   background-color: #da2c33;
 }
 
+#fire:active {
+  background-color: #fff;
+  color: #da2c33;
+}
+
 #water {
   background-color: #0067ab;
+}
+
+#water:active {
+  background-color: #fff;
+  color: #0067ab;
 }
 
 #grass, #fire, #water {

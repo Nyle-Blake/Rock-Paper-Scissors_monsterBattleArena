@@ -17,7 +17,7 @@ const disableButtons = () => {
 }; // prevents more input after the game has finished
 
 const getComputerChoice = () => {
-  return ['Rock', 'Paper', 'Scissors'][Math.floor(Math.random() * 3)];
+  return ['Grass', 'Fire', 'Water'][Math.floor(Math.random() * 3)];
 }; // gets random choice from computer
 
 const playGame = (userChoice) => {
@@ -27,10 +27,10 @@ const playGame = (userChoice) => {
 
   computerChoice = getComputerChoice();
 
-  if (computerChoice == "Rock" && userChoice == "Rock" || computerChoice == "Paper" && userChoice == "Paper" || computerChoice == "Scissors" && userChoice == "Scissors") {
+  if (computerChoice == "Grass" && userChoice == "Grass" || computerChoice == "Fire" && userChoice == "Fire" || computerChoice == "Water" && userChoice == "Water") {
     endResult = "This round is a draw" + "<br><br>Userscore: " + userScore + "<br>Computerscore: " + computerScore;
 
-  } else if (userChoice == "Rock" && computerChoice == "Scissors" || userChoice == "Paper" && computerChoice == "Rock" || userChoice == "Scissors" && computerChoice == "Paper") {
+  } else if (userChoice == "Grass" && computerChoice == "Water" || userChoice == "Fire" && computerChoice == "Grass" || userChoice == "Water" && computerChoice == "Fire") {
     userScore++
     endResult = "You won this round! " + "<br>" + userChoice + " beats " + computerChoice + "<br><br>Userscore: " + userScore + "<br>Computerscore: " + computerScore;
       if (userScore == 5) {
@@ -41,6 +41,7 @@ const playGame = (userChoice) => {
   } else {
     computerScore++
     endResult = "You lost this round! " + "<br>" + computerChoice + " beats " + userChoice + "<br><br>Userscore: " + userScore + "<br>Computerscore: " + computerScore;
+    console.log(computerChoice)
       if (computerScore == 5) {
         endResult = "You lost the battle!" + "<br><br>Userscore: " + userScore + "<br>Computerscore: " + computerScore;
         disableButtons()
@@ -48,8 +49,6 @@ const playGame = (userChoice) => {
   }
 
   result.innerHTML = endResult;
-  console.log(userChoice)
-  console.log(computerChoice)
   return;
 };
 
@@ -59,6 +58,6 @@ buttons.forEach(button => {
   })
 }); // event listener for the input buttons, for player input
 
-// rock => scissors
-// scissors => paper
-// paper => rock
+// Grass => Water
+// Water => Fire
+// Fire => Grass

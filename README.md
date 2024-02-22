@@ -1,2 +1,3 @@
-# TOP-RockPaperScissors
-A game of rock, paper, scissors created for the odin project
+# TOP-GrassFireWater
+
+A game of Grass, Fire, Water created for the odin project
